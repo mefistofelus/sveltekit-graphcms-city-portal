@@ -13,7 +13,7 @@
 </script>
 
 <script>
-	import { format, formatDistance, subDays } from 'date-fns';
+	import { toDate, format, formatDistance, subDays } from 'date-fns';
 	import uk from 'date-fns/locale/uk';
 
 	export let posts;
@@ -39,14 +39,19 @@
 
 <div class="container mx-auto p-5">
 	<div class="flex items-center">
-		{#each posts as { title, slug, date, excerpt, coverImage, featured, content }}
+		{#each posts as { title, slug, createdAt, excerpt, coverImage, featured, content }}
 			<div class="card w-96 bg-base-100 shadow-xl">
 				<figure class="px-10 pt-10">
 					<img class="rounded w-full" src={coverImage.url} alt={`Cover image for ${title}`} />
 				</figure>
 				<div class="card-body">
-					<h2 class="card-title">{title} - {date}</h2>
-					<p>{content.html}</p>
+					<h2 class="card-title">
+						{title} - {formatDistance(new Date(createdAt), new Date(), {
+							addSuffix: true,
+							locale: uk
+						})}
+					</h2>
+					<p>{@html content.html}</p>
 					<div class="card-actions justify-end">
 						<a href={slug} class="btn btn-success">Read post</a>
 					</div>

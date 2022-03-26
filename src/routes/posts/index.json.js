@@ -9,6 +9,7 @@ export const get = async () => {
 					title
 					slug
 					date
+					createdAt
 					excerpt
 					content {
 						html

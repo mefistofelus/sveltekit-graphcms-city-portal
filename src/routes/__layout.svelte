@@ -2,7 +2,7 @@
 	import '../app.css';
 </script>
 
-<div class="navbar bg-base-100 shadow-2xl">
+<div class="navbar bg-slate-700 shadow-2xl sticky top-0 z-10">
 	<div class="flex-none">
 		<div class="navbar-start">
 			<div class="dropdown">
