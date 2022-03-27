@@ -13,7 +13,7 @@
 </script>
 
 <script>
-	import { toDate, format, formatDistance, subDays } from 'date-fns';
+	import { formatDistance } from 'date-fns';
 	import uk from 'date-fns/locale/uk';
 
 	export let posts;
@@ -23,7 +23,7 @@
 	<title>Blog | Korsun Online</title>
 </svelte:head>
 
-<div class="hero bg-slate-600">
+<div class="hero">
 	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">
 		<div class="max-w-md">
@@ -38,11 +38,15 @@
 </div>
 
 <div class="container mx-auto p-5">
-	<div class="flex items-center">
+	<div class="flex items-center space-x-5">
 		{#each posts as { title, slug, createdAt, excerpt, coverImage, featured, content }}
 			<div class="card w-96 bg-base-100 shadow-xl">
 				<figure class="px-10 pt-10">
-					<img class="rounded w-full" src={coverImage.url} alt={`Cover image for ${title}`} />
+					<img
+						class="rounded w-full h-44 object-cover"
+						src={coverImage.url}
+						alt={`${title} - cover image`}
+					/>
 				</figure>
 				<div class="card-body">
 					<h2 class="card-title">

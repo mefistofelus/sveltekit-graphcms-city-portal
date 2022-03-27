@@ -8,7 +8,6 @@ export const get = async () => {
 				posts {
 					title
 					slug
-					date
 					createdAt
 					excerpt
 					content {
@@ -16,7 +15,7 @@ export const get = async () => {
 					}
 					featured
 					coverImage {
-						url
+						url(transformation: { image: { resize: { fit: clip, height: 1920, width: 1080 } } })
 					}
 				}
 			}
