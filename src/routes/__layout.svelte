@@ -1,4 +1,19 @@
+<script context="module">
+	export const load = async ({ fetch, params }) => {
+		const response = await fetch('/pages.json');
+
+		if (response.ok) {
+			const { pages } = await response.json();
+
+			return {
+				props: { pages }
+			};
+		}
+	};
+</script>
+
 <script>
+	export let pages;
 	import '../app.css';
 </script>
 
@@ -26,8 +41,9 @@
 					class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 				>
 					<li><a href="/">Homepage</a></li>
-					<li><a href="/">Portfolio</a></li>
-					<li><a href="/">About</a></li>
+					{#each pages as page}
+						<li><a sveltekit:prefetch href={`/${page.slug}`}>{page.title}</a></li>
+					{/each}
 				</ul>
 			</div>
 		</div>
@@ -37,25 +53,9 @@
 	</div>
 	<div class="flex-none">
 		<ul class="menu menu-horizontal p-0">
-			<li><a href="/">Item 1</a></li>
-			<li tabindex="0">
-				<a href="/">
-					Parent
-					<svg
-						class="fill-current"
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg
-					>
-				</a>
-				<ul class="p-2 bg-base-100">
-					<li><a href="/">Submenu 1</a></li>
-					<li><a href="/">Submenu 2</a></li>
-				</ul>
-			</li>
-			<li><a href="/">Item 3</a></li>
+			{#each pages as page}
+				<li><a sveltekit:prefetch href={`/${page.slug}`}>{page.title}</a></li>
+			{/each}
 		</ul>
 	</div>
 </div>

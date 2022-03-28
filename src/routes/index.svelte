@@ -1,5 +1,6 @@
 <script context="module">
-	export const load = async ({ fetch }) => {
+	export const load = async ({ fetch, params }) => {
+		console.log(params.slug);
 		const response = await fetch('/posts.json');
 
 		if (response.ok) {
@@ -57,7 +58,7 @@
 					</h2>
 					<p>{@html content.html}</p>
 					<div class="card-actions justify-end">
-						<a href={slug} class="btn btn-success">Read post</a>
+						<a sveltekit:prefetch href={`/posts/${slug}`} class="btn btn-outline">Read post</a>
 					</div>
 				</div>
 			</div>
