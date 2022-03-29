@@ -1,6 +1,5 @@
 <script context="module">
-	export const load = async ({ fetch, params }) => {
-		console.log(params.slug);
+	export const load = async ({ fetch }) => {
 		const response = await fetch('/posts.json');
 
 		if (response.ok) {

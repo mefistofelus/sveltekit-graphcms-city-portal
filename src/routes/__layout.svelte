@@ -1,19 +1,22 @@
 <script context="module">
 	export const load = async ({ fetch, params }) => {
+		const slug = params.slug;
 		const response = await fetch('/pages.json');
 
 		if (response.ok) {
 			const { pages } = await response.json();
 
 			return {
-				props: { pages }
+				props: { pages, slug }
 			};
 		}
 	};
 </script>
 
 <script>
+	import PageTransition from '$lib/PageTransition.svelte';
 	export let pages;
+	export let slug;
 	import '../app.css';
 </script>
 
@@ -29,4 +32,7 @@
 		</ul>
 	</div>
 </div>
-<slot />
+
+<PageTransition {slug}>
+	<slot />
+</PageTransition>
