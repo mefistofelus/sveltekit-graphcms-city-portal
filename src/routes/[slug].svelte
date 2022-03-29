@@ -21,7 +21,7 @@
 </svelte:head>
 
 <div class="container mx-auto text-center pt-10">
-	<h1 class="font-bold text-2xl">{page.title}</h1>
+	<h1 class="font-bold text-2xl">{page.title ?? 'Home page'}</h1>
 	<hr />
 	<p>{@html page.content.html}</p>
 </div>
