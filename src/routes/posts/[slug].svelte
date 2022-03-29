@@ -24,7 +24,7 @@
 </svelte:head>
 
 <div class="container mx-auto pt-10">
-	<div class="card w-1/2 bg-base-100 mx-auto">
+	<div class="card w-2/3 bg-base-100 mx-auto">
 		<figure><img src={post.coverImage.url} alt="Cover for {post.title}" /></figure>
 		<div class="card-body">
 			<div class="flex items-center justify-between">

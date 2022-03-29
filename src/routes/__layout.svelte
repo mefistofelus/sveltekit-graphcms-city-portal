@@ -20,16 +20,18 @@
 	import '../app.css';
 </script>
 
-<div class="navbar shadow-2xl sticky top-0 z-10">
-	<div class="flex-1">
-		<a class="btn btn-ghost normal-case text-xl" href="/">Korsun Online</a>
-	</div>
-	<div class="flex-none">
-		<ul class="menu menu-horizontal p-0">
-			{#each pages as page}
-				<li><a sveltekit:prefetch href={`/${page.slug}`}>{page.title}</a></li>
-			{/each}
-		</ul>
+<div class="navbar bg-white shadow-2xl sticky top-0 z-10">
+	<div class="container mx-auto">
+		<div class="flex-1">
+			<a class="btn btn-ghost normal-case text-xl" href="/">Korsun Online</a>
+		</div>
+		<div class="flex-none">
+			<ul class="menu menu-horizontal p-0 font-medium">
+				{#each pages as page}
+					<li><a sveltekit:prefetch href={`/${page.slug}`}>{page.title}</a></li>
+				{/each}
+			</ul>
+		</div>
 	</div>
 </div>
 

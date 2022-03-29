@@ -13,6 +13,7 @@
 </script>
 
 <script>
+	import Hero from '$lib/Hero/index.svelte';
 	import { formatDistance } from 'date-fns';
 	import uk from 'date-fns/locale/uk';
 
@@ -23,27 +24,16 @@
 	<title>Blog | Korsun Online</title>
 </svelte:head>
 
-<div class="hero">
-	<div class="hero-overlay bg-opacity-60" />
-	<div class="hero-content text-center text-neutral-content">
-		<div class="max-w-md">
-			<h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-			<p class="mb-5">
-				Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-				quasi. In deleniti eaque aut repudiandae et a id nisi.
-			</p>
-			<button class="btn btn-success btn-outline">Get Started</button>
-		</div>
-	</div>
-</div>
-
+<Hero />
 <div class="container mx-auto p-5">
-	<div class="flex items-center space-x-5">
+	<div class="grid grid-cols-12 gap-10 items-center space-x-5">
 		{#each posts as { title, slug, createdAt, excerpt, coverImage, featured, content }}
-			<div class="card w-96 bg-base-100 shadow-xl">
-				<figure class="px-10 pt-10">
+			<div class="col-span-4 card bg-base-100 shadow-xl">
+				<figure class="px-5 pt-10">
 					<img
-						class="rounded w-full h-44 object-cover"
+						width="304"
+						height="176"
+						class="rounded w-full h-56 object-cover"
 						src={coverImage.url}
 						alt={`${title} - cover image`}
 					/>

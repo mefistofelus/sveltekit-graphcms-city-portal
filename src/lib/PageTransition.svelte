@@ -6,8 +6,8 @@
 
 {#key slug}
 	<div
-		in:fly={{ y: -5, duration: pageTransitionDuration, delay: pageTransitionDuration }}
-		out:fly={{ y: 5, duration: pageTransitionDuration }}
+		in:fly={{ x: -5, duration: pageTransitionDuration, delay: pageTransitionDuration }}
+		out:fly={{ x: 5, duration: pageTransitionDuration }}
 	>
 		<slot />
 	</div>
